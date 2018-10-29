@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/BigFont.spritefont</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Button.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Enemies/Crab.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Font.spritefont</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Objects/Coin.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Objects/Flag.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sound/background.mp3</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sound/death.wav</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sound/win.wav</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sprites/Char1.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sprites/Char2.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sprites/Char3.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sprites/Char4.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sprites/Char5.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sprites/Char6.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sprites/Char7.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sprites/Char8.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Tiles/Background.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Tiles/Tile.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Tiles/TileDark.png</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Title.spritefont</File>
+    <File>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/TitleOutline.spritefont</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
