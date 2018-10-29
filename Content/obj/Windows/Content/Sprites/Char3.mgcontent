@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Sprites/Char3.png</SourceFile>
-  <SourceTime>2018-10-22T12:12:47.8876127-04:00</SourceTime>
-  <DestFile>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/bin/Windows/Content/Sprites/Char3.xnb</DestFile>
-  <DestTime>2018-10-24T17:12:58.8614833-04:00</DestTime>
+  <SourceFile>C:/Users/Peter/source/repos/Flag-Rush/Content/Sprites/Char3.png</SourceFile>
+  <SourceTime>2018-10-29T08:51:32.3539703-04:00</SourceTime>
+  <DestFile>C:/Users/Peter/source/repos/Flag-Rush/Content/bin/Windows/Content/Sprites/Char3.xnb</DestFile>
+  <DestTime>2018-10-29T08:53:00.6133957-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-23T17:55:52-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -23,6 +23,7 @@ namespace MultiplayerPlatform.States
         private List<Keys> jumpKeys;
         private List<Keys> leftKeys;
         private List<Keys> rightKeys;
+        private List<Keys> shootKeys;
 
         private Texture2D buttonTexture;
         private Texture2D backgroundTexture;
@@ -34,6 +35,7 @@ namespace MultiplayerPlatform.States
         private Button setLeftKeyButton;
         private Button setRightKeyButton;
         private Button setGameModeButton;
+        private Button setShootKeyButton;
 
         private int screenWidth;
         private int screenHeight;
@@ -44,7 +46,7 @@ namespace MultiplayerPlatform.States
         private int currentGameMode;
         
 
-        public SelectionState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, int playerNumber, List<int> chosenTexture, List<Keys> jumpKeys, List<Keys> leftKeys, List<Keys> rightKeys) : base(game, graphicsDevice, content)
+        public SelectionState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, int playerNumber, List<int> chosenTexture, List<Keys> jumpKeys, List<Keys> leftKeys, List<Keys> rightKeys, List<Keys> shootKeys) : base(game, graphicsDevice, content)
         {
           
             currentGameMode = 2;
@@ -54,6 +56,7 @@ namespace MultiplayerPlatform.States
             this.jumpKeys = jumpKeys;
             this.leftKeys = leftKeys;
             this.rightKeys = rightKeys;
+            this.shootKeys = shootKeys;
 
             screenWidth = graphicsDevice.Viewport.Width;
             screenHeight = graphicsDevice.Viewport.Height;
@@ -98,19 +101,19 @@ namespace MultiplayerPlatform.States
 
             setLeftKeyButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2((screenWidth / 2) - buttonTexture.Width / 2 - (paddingX*5), screenHeight - (buttonTexture.Height * 2) - (paddingY * 10)),
+                Position = new Vector2((screenWidth / 2) - buttonTexture.Width / 2 - (paddingX*7.5f), screenHeight - (buttonTexture.Height * 2) - (paddingY * 10)),
                 Text = "Set Left Key"
             };
 
             setJumpKeyButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2((screenWidth / 2) - (buttonTexture.Width / 2), screenHeight - (buttonTexture.Height * 2) - (paddingY * 10)),
+                Position = new Vector2(setLeftKeyButton.Position.X + buttonTexture.Width + paddingX, screenHeight - (buttonTexture.Height * 2) - (paddingY * 10)),
                 Text = "Set Jump Key"
             };
 
             setRightKeyButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2((screenWidth / 2) - buttonTexture.Width / 2 + (paddingX * 5), screenHeight - (buttonTexture.Height * 2) - (paddingY * 10)),
+                Position = new Vector2(setJumpKeyButton.Position.X + buttonTexture.Width + paddingX, screenHeight - (buttonTexture.Height * 2) - (paddingY * 10)),
                 Text = "Set Right Key"
             };
 
@@ -120,6 +123,12 @@ namespace MultiplayerPlatform.States
                 Text = "Select Game Mode"
             };
 
+            setShootKeyButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(setRightKeyButton.Position.X + buttonTexture.Width + paddingX, setRightKeyButton.Position.Y),
+                Text = "Set Shoot Key"
+            };
+
 
 
             startGameButton.Click += StartGameButton_Click;
@@ -127,6 +136,7 @@ namespace MultiplayerPlatform.States
             setJumpKeyButton.Click += SetJumpKeyButton_Click;
             setLeftKeyButton.Click += SetLeftKeyButton_Click;
             setRightKeyButton.Click += SetRightKeyButton_Click;
+            setShootKeyButton.Click += SetShootKeyButton_Click;
             setGameModeButton.Click += SetGameModeButton_Click;
             
             components.Add(startGameButton);
@@ -135,7 +145,19 @@ namespace MultiplayerPlatform.States
             components.Add(setJumpKeyButton);
             components.Add(setLeftKeyButton);
             components.Add(setRightKeyButton);
-            
+            components.Add(setShootKeyButton);
+        }
+
+        private void SetShootKeyButton_Click(object sender, EventArgs e)
+        {
+            KeyboardState currentKey = Keyboard.GetState();
+
+            for (int i = 0; i < currentKey.GetPressedKeys().Length; i++)
+            {
+                shootKeys.Add(currentKey.GetPressedKeys()[i]);
+                shootKeys[playerNumber - 1] = currentKey.GetPressedKeys()[i];
+                setShootKeyButton.Text = shootKeys[playerNumber - 1].ToString();
+            }
         }
 
         private void SetGameModeButton_Click(object sender, EventArgs e)
@@ -194,7 +216,7 @@ namespace MultiplayerPlatform.States
         private void NextPlayerButton_Click(object sender, EventArgs e)
         {
             chosenTexture.Add(characterChosen);
-            game.ChangeState(new SelectionState(game, graphicsDevice, content, playerNumber + 1, chosenTexture, jumpKeys, leftKeys, rightKeys));
+            game.ChangeState(new SelectionState(game, graphicsDevice, content, playerNumber + 1, chosenTexture, jumpKeys, leftKeys, rightKeys, shootKeys));
         }
 
         private void StartGameButton_Click(object sender, EventArgs e)
@@ -204,10 +226,10 @@ namespace MultiplayerPlatform.States
             Console.WriteLine(currentGameMode);
             if (currentGameMode == 1)
             {
-                game.ChangeState(new GameMode1State(game, graphicsDevice, content, playerNumber, chosenTexture, playerTextures, jumpKeys, leftKeys, rightKeys));
+                game.ChangeState(new GameMode1State(game, graphicsDevice, content, playerNumber, chosenTexture, playerTextures, jumpKeys, leftKeys, rightKeys, shootKeys));
             }
             else if (currentGameMode == 2) {
-                game.ChangeState(new GameMode2State(game, graphicsDevice, content, playerNumber, chosenTexture, playerTextures, jumpKeys, leftKeys, rightKeys));
+                game.ChangeState(new GameMode2State(game, graphicsDevice, content, playerNumber, chosenTexture, playerTextures, jumpKeys, leftKeys, rightKeys, shootKeys));
             }
             
         }
@@ -219,8 +241,8 @@ namespace MultiplayerPlatform.States
             graphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
 
             spriteBatch.DrawString(bigFont, "Player " + playerNumber + ", Choose your character", new Vector2(chooseCharacter[0].Position.X - 25, chooseCharacter[0].Position.Y - 50), Color.Black);
-            spriteBatch.DrawString(bigFont, "You choose: ", new Vector2(setLeftKeyButton.Position.X, screenHeight / 2), Color.Black);
-            spriteBatch.Draw(playerTextures[characterChosen], new Vector2((screenWidth / 2) - 100 + playerTextures[characterChosen].Width, screenHeight / 2), null, null, Vector2.Zero, 0f, new Vector2(5f,5f), Color.White);
+            spriteBatch.DrawString(bigFont, "You choose: ", new Vector2((setLeftKeyButton.Position.X + setJumpKeyButton.Position.X) / 2, screenHeight / 2), Color.Black);
+            spriteBatch.Draw(playerTextures[characterChosen], new Vector2((setJumpKeyButton.Position.X + setRightKeyButton.Position.X) / 2 + 25, screenHeight / 2), null, null, Vector2.Zero, 0f, new Vector2(5f,5f), Color.White);
             foreach (var component in components)
             {
                 component.Draw(gameTime, spriteBatch);

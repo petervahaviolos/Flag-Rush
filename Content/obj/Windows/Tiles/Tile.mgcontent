@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Tiles/Tile.png</SourceFile>
-  <SourceTime>2018-10-19T14:56:24.6372134-04:00</SourceTime>
-  <DestFile>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/bin/Windows/Tiles/Tile.xnb</DestFile>
-  <DestTime>2018-10-28T20:20:35.9786964-04:00</DestTime>
+  <SourceFile>C:/Users/Peter/source/repos/Flag-Rush/Content/Tiles/Tile.png</SourceFile>
+  <SourceTime>2018-10-29T08:51:32.361235-04:00</SourceTime>
+  <DestFile>C:/Users/Peter/source/repos/Flag-Rush/Content/bin/Windows/Tiles/Tile.xnb</DestFile>
+  <DestTime>2018-10-29T10:58:04.4212989-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-23T17:55:52-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -25,8 +25,9 @@ namespace MultiplayerPlatform.States
         private List<Keys> jumpKeys;
         private List<Keys> leftKeys;
         private List<Keys> rightKeys;
+        private List<Keys> shootKeys;
 
-        private Texture2D tileTexture, backgroundTexture, flagTexture, enemyTexture;
+        private Texture2D tileTexture, backgroundTexture, flagTexture, enemyTexture, bulletTexture;
         private Flag flag;
         private SpriteFont font;
         private SoundEffect win, death;
@@ -39,11 +40,12 @@ namespace MultiplayerPlatform.States
         private Random rand = new Random();
 
 
-        public GameMode1State(Game1 game, GraphicsDevice graphics, ContentManager content, int numberOfPlayers, List<int> chosenTexture, List<Texture2D> textures, List<Keys> jumpKeys, List<Keys> leftKeys, List<Keys> rightKeys) : base(game, graphics, content)
+        public GameMode1State(Game1 game, GraphicsDevice graphics, ContentManager content, int numberOfPlayers, List<int> chosenTexture, List<Texture2D> textures, List<Keys> jumpKeys, List<Keys> leftKeys, List<Keys> rightKeys, List<Keys> shootKeys) : base(game, graphics, content)
         {
             this.jumpKeys = jumpKeys;
             this.leftKeys = leftKeys;
             this.rightKeys = rightKeys;
+            this.shootKeys = shootKeys;
             GraphicsDeviceManager = Game1.graphics;
             spriteBatch = new SpriteBatch(graphics);
             
@@ -59,6 +61,7 @@ namespace MultiplayerPlatform.States
             Console.WriteLine("Loaded flag texture");
             font = content.Load<SpriteFont>("font");
             Console.WriteLine("Loaded font");
+            bulletTexture = content.Load<Texture2D>("Objects/Bullet");
             enemyTexture = content.Load<Texture2D>("Enemies/Crab");
         
 
@@ -71,7 +74,7 @@ namespace MultiplayerPlatform.States
 
             Console.WriteLine("Number of players: " + numberOfPlayers);
             for (int i = 0; i < numberOfPlayers; i++) {
-                players.Add(new Player(textures[chosenTexture[i]], startingPosition, spriteBatch));
+                players.Add(new Player(textures[chosenTexture[i]], startingPosition, spriteBatch, bulletTexture));
                 Console.WriteLine("Loaded player " + (i+1));
             }
             
@@ -124,7 +127,7 @@ namespace MultiplayerPlatform.States
             }
 
             for (int i = 0; i < players.Count; i++) {
-                players[i].Update(gameTime, jumpKeys[i], leftKeys[i], rightKeys[i], 1);
+                players[i].Update(gameTime, jumpKeys[i], leftKeys[i], rightKeys[i], shootKeys[i], 1, players);
             }
 
             flag.Update(gameTime, players, board, new Vector2(80, 80), win);

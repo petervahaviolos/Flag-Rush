@@ -49,6 +49,7 @@
     <Compile Include="MainGame\Board.cs" />
     <Compile Include="Graphics\Sprite.cs" />
     <Compile Include="Graphics\Tile.cs" />
+    <Compile Include="Objects\Bullet.cs" />
     <Compile Include="Objects\Enemy.cs" />
     <Compile Include="Objects\Flag.cs" />
     <Compile Include="Objects\Player.cs" />

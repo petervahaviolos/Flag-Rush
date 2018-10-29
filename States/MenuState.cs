@@ -83,7 +83,7 @@ namespace MultiplayerPlatform.States
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            game.ChangeState(new SelectionState(game, graphicsDevice, content, 1, new List<int>(), new List<Keys>(), new List<Keys>(), new List<Keys>()));
+            game.ChangeState(new SelectionState(game, graphicsDevice, content, 1, new List<int>(), new List<Keys>(), new List<Keys>(), new List<Keys>(), new List<Keys>()));
         }
 
 

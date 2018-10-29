@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/Objects/Coin.png</SourceFile>
-  <SourceTime>2018-10-19T15:55:41.3842338-04:00</SourceTime>
-  <DestFile>C:/Users/Peter/source/repos/MultiplayerPlatformGame/MultiplayerPlatformGame/Content/bin/Windows/Content/Objects/Coin.xnb</DestFile>
-  <DestTime>2018-10-26T15:02:10.1017975-04:00</DestTime>
+  <SourceFile>C:/Users/Peter/source/repos/Flag-Rush/Content/Objects/Coin.png</SourceFile>
+  <SourceTime>2018-10-29T08:51:32.3141119-04:00</SourceTime>
+  <DestFile>C:/Users/Peter/source/repos/Flag-Rush/Content/bin/Windows/Content/Objects/Coin.xnb</DestFile>
+  <DestTime>2018-10-29T08:52:57.950952-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-23T17:55:52-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

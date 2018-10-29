@@ -20,15 +20,18 @@ namespace MultiplayerPlatformGame.States
     {
         GraphicsDeviceManager GraphicsDeviceManager;
         SpriteBatch spriteBatch;
-        private List<Player> players = new List<Player>();
+        public List<Player> players = new List<Player>();
+        public List<Vector2> respawnPositions = new List<Vector2>();
         private Board2 board;
         private Background background;
         private Vector2 startingPosition;
         private List<Keys> jumpKeys;
         private List<Keys> leftKeys;
         private List<Keys> rightKeys;
+        private List<Keys> shootKeys;
 
         private Texture2D tileTexture, backgroundTexture, flagTexture, enemyTexture;
+        private Texture2D bulletTexture;
         private Flag flag;
         private SpriteFont font;
         private SoundEffect win, death;
@@ -40,14 +43,18 @@ namespace MultiplayerPlatformGame.States
 
         private Random rand = new Random();
 
-        public GameMode2State(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, int numberOfPlayers, List<int> chosenTexture, List<Texture2D> textures, List<Keys> jumpKeys, List<Keys> leftKeys, List<Keys> rightKeys) : base(game, graphicsDevice, content)
+        public static GameMode2State currentGameState { get; private set; }
+
+        public GameMode2State(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, int numberOfPlayers, List<int> chosenTexture, List<Texture2D> textures, List<Keys> jumpKeys, List<Keys> leftKeys, List<Keys> rightKeys, List<Keys> shootKeys) : base(game, graphicsDevice, content)
         {
             this.jumpKeys = jumpKeys;
             this.leftKeys = leftKeys;
             this.rightKeys = rightKeys;
+            this.shootKeys = shootKeys;
             GraphicsDeviceManager = Game1.graphics;
             spriteBatch = new SpriteBatch(graphicsDevice);
-
+            respawnPositions.Add(new Vector2(80, 50));
+            
 
             startingPosition = new Vector2(80, 50);
 
@@ -61,6 +68,7 @@ namespace MultiplayerPlatformGame.States
             font = content.Load<SpriteFont>("font");
             Console.WriteLine("Loaded font");
             enemyTexture = content.Load<Texture2D>("Enemies/Crab");
+            bulletTexture = content.Load<Texture2D>("Objects/Bullet");
 
 
             board = new Board2(tileTexture, spriteBatch, columns, rows);
@@ -73,7 +81,7 @@ namespace MultiplayerPlatformGame.States
             Console.WriteLine("Number of players: " + numberOfPlayers);
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                players.Add(new Player(textures[chosenTexture[i]], startingPosition, spriteBatch));
+                players.Add(new Player(textures[chosenTexture[i]], startingPosition, spriteBatch,bulletTexture));
                 Console.WriteLine("Loaded player " + (i + 1));
             }
 
@@ -108,7 +116,7 @@ namespace MultiplayerPlatformGame.States
         {
             for (int i = 0; i < players.Count; i++)
             {
-                players[i].Update(gameTime, jumpKeys[i], leftKeys[i], rightKeys[i], 2);
+                players[i].Update(gameTime, jumpKeys[i], leftKeys[i], rightKeys[i], shootKeys[i], 2, players);
             }
             flag.Update(gameTime, players, startingPosition, win);
         }

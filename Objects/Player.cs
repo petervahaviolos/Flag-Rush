@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MultiplayerPlatform.Graphics;
+using MultiplayerPlatformGame.Objects;
+using MultiplayerPlatformGame.States;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +14,23 @@ namespace MultiplayerPlatform.Objects
 {
     public class Player : Sprite
     {
+        public Bullet Bullet;
+        private List<Bullet> bullets = new List<Bullet>();
         private Vector2 Movement { get; set; }
         private Vector2 oldPosition;
+        private Texture2D bulletTexture;
+        KeyboardState keyboardState = Keyboard.GetState();
+
         public int score;
         private SpriteEffects s = SpriteEffects.None;
         private int gameMode;
+        public int facing = 0;
 
-        public Player(Texture2D texture, Vector2 position, SpriteBatch batch) : base(texture, position, batch) {
+        public static Player currentPlayer { get; private set; }
 
+        public Player(Texture2D texture, Vector2 position, SpriteBatch batch, Texture2D bulletTexture) : base(texture, position, batch) {
+            this.bulletTexture = bulletTexture;
+            Player.currentPlayer = this;
         }
 
         public int GetScore()
@@ -27,10 +38,16 @@ namespace MultiplayerPlatform.Objects
             return score;
         }
 
-        public void Update(GameTime gameTime, Keys jump, Keys left, Keys right, int GameMode)
+        public void Update(GameTime gameTime, Keys jump, Keys left, Keys right, Keys shoot, int GameMode, List<Player> players)
         {
             gameMode = GameMode;
-            CheckKeyboardInput(jump, left, right);
+            CheckKeyboardInput(jump, left, right, shoot);
+            for (int i = 0; i < bullets.Count; i++) {
+                if (bullets[i].isActive) {
+                    bullets[i].Update(gameTime);
+                }
+            
+            }
             AffectWithGravity();
             SimulateFriction();
             MoveAsFarAsPossible(gameTime, GameMode);
@@ -60,24 +77,37 @@ namespace MultiplayerPlatform.Objects
             Movement += Vector2.UnitY * .5f;
         }
 
-        private void CheckKeyboardInput(Keys jump, Keys left, Keys right)
+        private void CheckKeyboardInput(Keys jump, Keys left, Keys right, Keys shoot)
         {
 
-            KeyboardState keyboardState = Keyboard.GetState();
+   
+            KeyboardState previousKey = keyboardState;
+            keyboardState = Keyboard.GetState();
 
             if (keyboardState.IsKeyDown(left))
             {
                 Movement += new Vector2(-0.8f, 0);
                 s = SpriteEffects.None;
+                facing = 0;
             }
             if (keyboardState.IsKeyDown(right))
             {
                 Movement += new Vector2(0.8f, 0);
                 s = SpriteEffects.FlipHorizontally;
+                facing = 1;
             }
             if (keyboardState.IsKeyDown(jump) && IsOnGround(gameMode))
             {
                 Movement = new Vector2(0, -25f);
+            }
+            if (keyboardState.IsKeyDown(shoot) && previousKey.IsKeyUp(shoot)) {
+                bullets.Add(new Bullet(GameMode2State.currentGameState.players));
+                for (int i = 0; i < bullets.Count; i++) {
+                    if (!bullets[i].isActive) {
+                        bullets[i].ActivateBullet(this.Position, bulletTexture);
+                    }
+                    
+                }
             }
 
         }
@@ -86,6 +116,9 @@ namespace MultiplayerPlatform.Objects
         {
             SpriteBatch.Begin();
             SpriteBatch.Draw(Texture, Bounds, null, Color.White, 0, new Vector2(0, 0), s, 0);
+            foreach (var bullet in bullets) {
+                bullet.Draw(SpriteBatch);
+            }
             SpriteBatch.End();
         }
 

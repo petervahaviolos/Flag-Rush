@@ -31,5 +31,7 @@ namespace MultiplayerPlatform.Graphics
                 return new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
             }
         }
+
+
     }
 }
