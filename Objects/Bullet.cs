@@ -22,12 +22,12 @@ namespace MultiplayerPlatformGame.Objects
         public bool isActive;
         private float moveSpeed;
         public Rectangle bulletRectangle;
-        private List<Player> Players;
+        private List<Player> Players = GameMode2State.currentGameState.players;
+        
         private Random rand = new Random();
 
-        public Bullet(List<Player> players)
+        public Bullet()
         {
-            Players = players;
             isActive = false;
         }
 
@@ -35,7 +35,7 @@ namespace MultiplayerPlatformGame.Objects
             bulletFacing = Player.currentPlayer.facing;
             bulletPosition = center;
             bulletTexture = texture;
-            moveSpeed = 500;
+            moveSpeed = 1500;
             isActive = true;
             SetVelocity();
         }
@@ -64,7 +64,7 @@ namespace MultiplayerPlatformGame.Objects
             }
             for (int i = 0; i < Players.Count; i++) {
                 if (bulletRectangle.Intersects(Players[i].Bounds)) {
-                    Players[i].Position = GameMode2State.currentGameState.respawnPositions[rand.Next(0)];
+                    Players[i].Position = GameMode2State.currentGameState.respawnPositions[rand.Next(0,GameMode2State.currentGameState.respawnPositions.Count)];
                 }
             }
 

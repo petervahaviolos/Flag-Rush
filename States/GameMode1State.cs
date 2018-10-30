@@ -74,7 +74,7 @@ namespace MultiplayerPlatform.States
 
             Console.WriteLine("Number of players: " + numberOfPlayers);
             for (int i = 0; i < numberOfPlayers; i++) {
-                players.Add(new Player(textures[chosenTexture[i]], startingPosition, spriteBatch, bulletTexture));
+                players.Add(new Player(textures[chosenTexture[i]], startingPosition, spriteBatch, bulletTexture, 0));
                 Console.WriteLine("Loaded player " + (i+1));
             }
             

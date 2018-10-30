@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Peter/source/repos/Flag-Rush/Content/Tiles/Tile.png</SourceFile>
-  <SourceTime>2018-10-29T08:51:32.361235-04:00</SourceTime>
-  <DestFile>C:/Users/Peter/source/repos/Flag-Rush/Content/bin/Windows/Content/Tiles/Tile.xnb</DestFile>
-  <DestTime>2018-10-29T08:53:00.7698565-04:00</DestTime>
+  <SourceFile>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Tiles/Tile.png</SourceFile>
+  <SourceTime>2018-10-29T17:17:55.7940834-04:00</SourceTime>
+  <DestFile>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/bin/Windows/Content/Tiles/Tile.xnb</DestFile>
+  <DestTime>2018-10-29T17:19:42.7457431-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-23T17:55:52-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

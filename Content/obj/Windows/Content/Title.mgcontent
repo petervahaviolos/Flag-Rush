@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Peter/source/repos/Flag-Rush/Content/Title.spritefont</SourceFile>
-  <SourceTime>2018-10-29T08:51:32.3629468-04:00</SourceTime>
-  <DestFile>C:/Users/Peter/source/repos/Flag-Rush/Content/bin/Windows/Content/Title.xnb</DestFile>
-  <DestTime>2018-10-29T08:53:00.9614727-04:00</DestTime>
+  <SourceFile>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Title.spritefont</SourceFile>
+  <SourceTime>2018-10-29T17:17:55.7950831-04:00</SourceTime>
+  <DestFile>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/bin/Windows/Content/Title.xnb</DestFile>
+  <DestTime>2018-10-29T17:19:42.8597065-04:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2018-09-23T17:55:52-04:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

@@ -47,16 +47,20 @@ namespace MultiplayerPlatformGame.States
 
         public GameMode2State(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, int numberOfPlayers, List<int> chosenTexture, List<Texture2D> textures, List<Keys> jumpKeys, List<Keys> leftKeys, List<Keys> rightKeys, List<Keys> shootKeys) : base(game, graphicsDevice, content)
         {
+           
             this.jumpKeys = jumpKeys;
             this.leftKeys = leftKeys;
             this.rightKeys = rightKeys;
             this.shootKeys = shootKeys;
             GraphicsDeviceManager = Game1.graphics;
             spriteBatch = new SpriteBatch(graphicsDevice);
-            respawnPositions.Add(new Vector2(80, 50));
-            
+            respawnPositions.Add(new Vector2(64, 64));
+            respawnPositions.Add(new Vector2(1824, 64));
+            respawnPositions.Add(new Vector2(64, 928));
+            respawnPositions.Add(new Vector2(1824, 928));
 
             startingPosition = new Vector2(80, 50);
+
 
 
             tileTexture = content.Load<Texture2D>("Tiles/TileDark");
@@ -81,7 +85,7 @@ namespace MultiplayerPlatformGame.States
             Console.WriteLine("Number of players: " + numberOfPlayers);
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                players.Add(new Player(textures[chosenTexture[i]], startingPosition, spriteBatch,bulletTexture));
+                players.Add(new Player(textures[chosenTexture[i]], respawnPositions[rand.Next(0,respawnPositions.Count)], spriteBatch,bulletTexture, 0));
                 Console.WriteLine("Loaded player " + (i + 1));
             }
 
@@ -93,6 +97,7 @@ namespace MultiplayerPlatformGame.States
             MediaPlayer.Play(song);
             MediaPlayer.IsRepeating = true;
             MediaPlayer.Volume = 0.3f;
+            GameMode2State.currentGameState = this;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

@@ -4,29 +4,29 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/BigFont.spritefont</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Button.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Enemies/Crab.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Font.spritefont</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Objects/Bullet.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Objects/Coin.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Objects/Flag.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sound/background.mp3</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sound/death.wav</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sound/win.wav</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sprites/Char1.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sprites/Char2.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sprites/Char3.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sprites/Char4.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sprites/Char5.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sprites/Char6.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sprites/Char7.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Sprites/Char8.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Tiles/Background.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Tiles/Tile.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Tiles/TileDark.png</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/Title.spritefont</File>
-    <File>C:/Users/Peter/source/repos/Flag-Rush/Content/TitleOutline.spritefont</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/BigFont.spritefont</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Button.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Enemies/Crab.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Font.spritefont</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Objects/Bullet.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Objects/Coin.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Objects/Flag.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sound/background.mp3</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sound/death.wav</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sound/win.wav</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sprites/Char1.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sprites/Char2.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sprites/Char3.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sprites/Char4.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sprites/Char5.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sprites/Char6.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sprites/Char7.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Sprites/Char8.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Tiles/Background.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Tiles/Tile.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Tiles/TileDark.png</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/Title.spritefont</File>
+    <File>G:/Documents/Monogame Projects/Flag-Rush/Flag-Rush/Content/TitleOutline.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

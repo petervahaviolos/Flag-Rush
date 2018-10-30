@@ -24,13 +24,15 @@ namespace MultiplayerPlatform.Objects
         public int score;
         private SpriteEffects s = SpriteEffects.None;
         private int gameMode;
-        public int facing = 0;
+        public int facing;
 
         public static Player currentPlayer { get; private set; }
 
-        public Player(Texture2D texture, Vector2 position, SpriteBatch batch, Texture2D bulletTexture) : base(texture, position, batch) {
+        public Player(Texture2D texture, Vector2 position, SpriteBatch batch, Texture2D bulletTexture, int bulletFacing) : base(texture, position, batch) {
             this.bulletTexture = bulletTexture;
+            this.facing = bulletFacing;
             Player.currentPlayer = this;
+            
         }
 
         public int GetScore()
@@ -41,13 +43,13 @@ namespace MultiplayerPlatform.Objects
         public void Update(GameTime gameTime, Keys jump, Keys left, Keys right, Keys shoot, int GameMode, List<Player> players)
         {
             gameMode = GameMode;
-            CheckKeyboardInput(jump, left, right, shoot);
+            CheckKeyboardInput(jump, left, right, shoot, players);
             for (int i = 0; i < bullets.Count; i++) {
                 if (bullets[i].isActive) {
                     bullets[i].Update(gameTime);
-                }
-            
+                }        
             }
+            
             AffectWithGravity();
             SimulateFriction();
             MoveAsFarAsPossible(gameTime, GameMode);
@@ -77,7 +79,7 @@ namespace MultiplayerPlatform.Objects
             Movement += Vector2.UnitY * .5f;
         }
 
-        private void CheckKeyboardInput(Keys jump, Keys left, Keys right, Keys shoot)
+        private void CheckKeyboardInput(Keys jump, Keys left, Keys right, Keys shoot, List<Player> players)
         {
 
    
@@ -88,25 +90,43 @@ namespace MultiplayerPlatform.Objects
             {
                 Movement += new Vector2(-0.8f, 0);
                 s = SpriteEffects.None;
-                facing = 0;
+                for (int i = 0; i < players.Count; i++)
+                {
+                    if (players[i].Equals(currentPlayer))
+                    {
+                        currentPlayer.facing = 0;
+                    }
+                }
             }
             if (keyboardState.IsKeyDown(right))
             {
                 Movement += new Vector2(0.8f, 0);
                 s = SpriteEffects.FlipHorizontally;
-                facing = 1;
+                for (int i = 0; i < players.Count; i++)
+                {
+                    if (players[i].Equals(currentPlayer))
+                    {
+                        currentPlayer.facing = 1;
+                    }
+                }
             }
             if (keyboardState.IsKeyDown(jump) && IsOnGround(gameMode))
             {
                 Movement = new Vector2(0, -25f);
             }
             if (keyboardState.IsKeyDown(shoot) && previousKey.IsKeyUp(shoot)) {
-                bullets.Add(new Bullet(GameMode2State.currentGameState.players));
+                
+                bullets.Add(new Bullet());
+               
                 for (int i = 0; i < bullets.Count; i++) {
-                    if (!bullets[i].isActive) {
-                        bullets[i].ActivateBullet(this.Position, bulletTexture);
-                    }
                     
+                    if (!bullets[i].isActive && currentPlayer.facing == 1) {
+                        bullets[i].ActivateBullet(this.Position + (Vector2.UnitX * Texture.Width) + (Vector2.UnitY * (Texture.Height / 2)), bulletTexture);
+                    }
+                    else if (!bullets[i].isActive && currentPlayer.facing == 0)
+                    {
+                        bullets[i].ActivateBullet(this.Position - (Vector2.UnitX * Texture.Width) + (Vector2.UnitY * (Texture.Height / 2)), bulletTexture);
+                    }
                 }
             }
 
