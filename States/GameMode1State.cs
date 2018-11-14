@@ -80,7 +80,7 @@ namespace MultiplayerPlatform.States
                 Console.WriteLine("Loaded player " + (i+1));
             }
 
-            hud = new HUD(players, 1, content);
+            hud = new HUD(players, content);
 
             Song song = content.Load<Song>("Sound/background");
             Console.WriteLine("Loaded background music");

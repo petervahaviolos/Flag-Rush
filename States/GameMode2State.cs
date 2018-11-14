@@ -18,6 +18,7 @@ namespace MultiplayerPlatformGame.States
 {
     public class GameMode2State : State
     {
+        HUD hud;
         GraphicsDeviceManager GraphicsDeviceManager;
         SpriteBatch spriteBatch;
         public List<Player> players = new List<Player>();
@@ -89,6 +90,7 @@ namespace MultiplayerPlatformGame.States
                 Console.WriteLine("Loaded player " + (i + 1));
             }
 
+            hud = new HUD(players, content);
 
             Song song = content.Load<Song>("Sound/background");
             Console.WriteLine("Loaded background music");
@@ -109,6 +111,7 @@ namespace MultiplayerPlatformGame.States
                 player.Draw();
             }
             flag.Draw();
+            hud.Draw(spriteBatch);
             spriteBatch.End();
         }
 

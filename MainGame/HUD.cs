@@ -14,12 +14,10 @@ namespace MultiplayerPlatformGame.MainGame
     {
         
         private List<Player> players;
-        private int gameMode;
         private SpriteFont font;
 
-        public HUD(List<Player> player, int GameMode, ContentManager content) {
+        public HUD(List<Player> player, ContentManager content) {
             players = player;
-            gameMode = GameMode;
             font = content.Load<SpriteFont>("Font");
         }
 

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using MultiplayerPlatform.Graphics;
+using MultiplayerPlatformGame.States;
 using System;
 using System.Collections.Generic;
 
@@ -49,7 +50,7 @@ namespace MultiplayerPlatform.Objects
                     Players[i].score += 1;                  
                     for (int j = 0; j < Players.Count; j++)
                     {
-                        Players[j].Position = originalPlayerPosition;
+                        Players[j].Position = GameMode2State.currentGameState.respawnPositions[rand.Next(0, GameMode2State.currentGameState.respawnPositions.Count)];
                     }
 
                 }
