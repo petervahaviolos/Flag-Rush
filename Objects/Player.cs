@@ -114,7 +114,7 @@ namespace MultiplayerPlatform.Objects
             {
                 Movement = new Vector2(0, -25f);
             }
-            if (keyboardState.IsKeyDown(shoot) && previousKey.IsKeyUp(shoot)) {
+            if (keyboardState.IsKeyDown(shoot) && previousKey.IsKeyUp(shoot) && gameMode == 2) {
                 
                 bullets.Add(new Bullet());
                

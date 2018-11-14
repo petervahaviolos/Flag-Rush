@@ -16,6 +16,7 @@ namespace MultiplayerPlatform.States
 {
     public class GameMode1State : State
     {
+        HUD hud;
         GraphicsDeviceManager GraphicsDeviceManager;
         SpriteBatch spriteBatch;
         private List<Player> players = new List<Player>();
@@ -50,6 +51,7 @@ namespace MultiplayerPlatform.States
             spriteBatch = new SpriteBatch(graphics);
             
             
+            
             startingPosition = new Vector2(80, 80);
 
             
@@ -77,7 +79,8 @@ namespace MultiplayerPlatform.States
                 players.Add(new Player(textures[chosenTexture[i]], startingPosition, spriteBatch, bulletTexture, 0));
                 Console.WriteLine("Loaded player " + (i+1));
             }
-            
+
+            hud = new HUD(players, 1, content);
 
             Song song = content.Load<Song>("Sound/background");
             Console.WriteLine("Loaded background music");
@@ -97,6 +100,7 @@ namespace MultiplayerPlatform.States
                 player.Draw();
             }
             flag.Draw();
+            hud.Draw(spriteBatch);
             spriteBatch.End();
         }
 
